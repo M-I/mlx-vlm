@@ -167,6 +167,8 @@ def convert(
             mode=q_mode,
             quant_predicate=quant_predicate,
         )
+        if config["dry-run"]:
+            quit()
 
     if dequantize:
         print("[INFO] Dequantizing")
@@ -232,6 +234,9 @@ def configure_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "-q", "--quantize", help="Generate a quantized model.", action="store_true"
+    )
+     parser.add_argument(
+        "--dry-run", help="Print an estimation of the average bit per weight after quantization then quit.", action="store_true"
     )
     parser.add_argument(
         "--q-group-size",
