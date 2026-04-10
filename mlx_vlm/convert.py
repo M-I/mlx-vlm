@@ -115,6 +115,7 @@ def convert(
     dequantize: bool = False,
     trust_remote_code: bool = True,
     quant_predicate: Optional[str] = None,
+    dry_run: bool = False,
 ):
     print("[INFO] Loading")
     model_path = get_model_path(hf_path, revision=revision)
@@ -167,7 +168,7 @@ def convert(
             mode=q_mode,
             quant_predicate=quant_predicate,
         )
-        if config["dry-run"]:
+        if dry_run:
             quit()
 
     if dequantize:
