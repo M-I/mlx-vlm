@@ -236,7 +236,7 @@ def configure_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "-q", "--quantize", help="Generate a quantized model.", action="store_true"
     )
-     parser.add_argument(
+    parser.add_argument(
         "--dry-run", help="Print an estimation of the average bit per weight after quantization then quit.", action="store_true"
     )
     parser.add_argument(
